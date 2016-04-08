@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
+using Permissionamento.Context;
 
 namespace Permissionamento.Config
 {
@@ -9,7 +11,7 @@ namespace Permissionamento.Config
     {
         public void Configuration(IAppBuilder app)
         {
-            app.CreatePerOwinContext(Data.Contexto.Create);
+            app.CreatePerOwinContext(Contexto.Create);
             app.CreatePerOwinContext<AppUserManager>(AppUserManager.Create);
             app.CreatePerOwinContext<AppSignInManager>(AppSignInManager.Create);
 
